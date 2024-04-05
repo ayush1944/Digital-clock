@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Digital Clock</title>
+    <style type="text/css">
+        h1{
+            font-size: 100px;
+            text-align: center;
+            font-family: Verdana;
+        }
+        .main{
+            width: 1000px;
+            height: 300px;
+            border: 25px black solid;
+            text-align: center;
+            margin: auto;
+            background: yellow;
+        }
+        .main1{
+            font-size: 25px;
+            text-align:end;
+        }
+    </style>
+</head>
+<body  onload="showtime()">
+    <div class="main" >
+    <h1>
+    </h1>
+    <div class="main1">
+    <h2>
+        Current time
+    </h2>
+    </div>
+</body>
+    <script type="text/javascript">
+        function showtime(){
+            var d = new Date();
+            var h = d.getHours();
+            var m = d.getMinutes();
+            var s = d.getSeconds();
+            var session = "PM";
+
+            if(h > 12){
+                h = h- 12;
+            }
+            if(h>=12){
+                session = "AM";
+            }
+            
+            h = h < 10 ? "0" + h : h;
+            m = m < 10 ? "0" + m : m;
+            s = s < 10 ? "0" + s : s;
+
+            var time =  h + " : " + m + " : " + s + " : " + session ;
+            document.getElementsByTagName('h1')[0].innerText = time;
+            setTimeout(showtime,1000);
+        }
+    </script>
+    </div>
+</html>
